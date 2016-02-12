@@ -9,6 +9,11 @@ module.exports = {
             test: /\.js$/,
             loaders: ['babel-loader'],
             exclude: /node_modules/,
+        }],
+        preLoaders: [{
+            test: /\.js$/,
+            loaders: ['eslint-loader'],
+            include: ['./src']
         }]
     },
     output: {
@@ -23,5 +28,8 @@ module.exports = {
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.UglifyJsPlugin({ minimize: true }),
-    ]
+    ],
+    eslint: {
+        configFile: './.eslintrc'
+    }
 };

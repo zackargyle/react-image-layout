@@ -4,8 +4,17 @@
   "description": "A simple Pinterest style grid layout component for images",
   "main": "dist/ImageLayout.min.js",
   "jsnext:main": "src/ImageLayout.js",
+  "scripts": {
+    "build": "npm run clean && webpack --config webpack.config.js",
+    "clean": "rimraf dist lib",
+    "lint": "./node_modules/eslint/bin/eslint.js src",
+    "prepublish": "npm run build",
+    "start": "cd example && node server.js",
+    "test": "node_modules/.bin/karma start karma.config.js"
+  },
   "devDependencies": {
     "babel-core": "^6.3.13",
+    "babel-eslint": "^4.1.8",
     "babel-loader": "^6.2.2",
     "babel-polyfill": "^6.5.0",
     "babel-preset-es2015": "^6.3.13",
@@ -14,6 +23,9 @@
     "chai-enzyme": "^0.4.0",
     "cheerio": "^0.20.0",
     "enzyme": "^1.6.0",
+    "eslint": "^1.6.0",
+    "eslint-loader": "^1.2.1",
+    "eslint-plugin-react": "^3.16.1",
     "karma": "^0.13.19",
     "karma-chai": "^0.1.0",
     "karma-mocha": "^0.2.1",
@@ -36,13 +48,6 @@
   },
   "peerDependencies": {
     "react": "^0.14.3"
-  },
-  "scripts": {
-    "build": "npm run clean && webpack --config webpack.config.js",
-    "clean": "rimraf dist lib",
-    "prepublish": "npm run build",
-    "start": "cd example && node server.js",
-    "test": "node_modules/.bin/karma start karma.config.js"
   },
   "files": [
     "dist/",

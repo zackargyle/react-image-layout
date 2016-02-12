@@ -51,11 +51,11 @@ export default class ImageLayout extends React.Component {
      */
     renderItem(item, index) {
         return (
-          <img className="ImageLayout__item"
-               src={item.url}
-               width={this.props.columnWidth}
-               style={this.getItemStyle(item)}
-               key={index} />
+            <img className="ImageLayout__item"
+                src={item.url}
+                width={this.props.columnWidth}
+                style={this.getItemStyle(item)}
+                key={index} />
         );
     }
 

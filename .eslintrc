@@ -1,0 +1,81 @@
+{
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true
+    },
+
+    "plugins": ["react"],
+
+    "ecmaFeatures": {
+        "arrowFunctions": true,
+        "binaryLiterals": true,
+        "blockBindings": true,
+        "classes": true,
+        "defaultParams": true,
+        "destructuring": true,
+        "experimentalObjectRestSpread": true,
+        "forOf": true,
+        "generators": true,
+        "modules": true,
+        "objectLiteralComputedProperties": true,
+        "objectLiteralDuplicateProperties": true,
+        "objectLiteralShorthandMethods": true,
+        "objectLiteralShorthandProperties": true,
+        "octalLiterals": true,
+        "spread": true,
+        "superInFunctions": true,
+        "templateStrings": true,
+        "unicodeCodePointEscapes": true,
+        "globalReturn": true,
+        "jsx": true
+    },
+
+    "rules": {
+        // JS
+        "camelcase": 0,
+        "consistent-return": 0,
+        "dot-notation": 0,
+        "eol-last": 0,
+        "global-strict": 0,
+        "key-spacing": 0,
+        "new-cap": 0,
+        "no-alert": 0,
+        "comma-dangle": 0,
+        "no-console": 0,
+        "no-constant-condition": 0,
+        "no-empty": 0,
+        "no-extend-native": 0,
+        "no-multi-spaces": 0,
+        "no-octal-escape": 0,
+        "no-process-exit": 0,
+        "no-script-url": 0,
+        "no-shadow": 0,
+        "no-trailing-spaces": 0,
+        "no-underscore-dangle": 0,
+        "no-unused-expressions": 0,
+        "no-unused-vars": 1,
+        "semi-spacing": 0,
+        "strict": 0,
+        "space-unary-ops": 0,
+        "quotes": 0,
+        "yoda": 0,
+
+        // React
+        "jsx-quotes": [2, "prefer-double"], // Enforce quote style for JSX attributes
+        "react/jsx-no-undef": 2, // Disallow undeclared variables in JSX
+        "react/jsx-pascal-case": 2,
+        "react/jsx-sort-props": 0, // Enforce props alphabetical sorting
+        "react/jsx-uses-react": 2, // Prevent React to be incorrectly marked as unused
+        "react/jsx-uses-vars": 2, // Prevent variables used in JSX to be incorrectly marked as unused
+        "react/no-did-mount-set-state": 2, // Prevent usage of setState in componentDidMount
+        "react/no-did-update-set-state": 2, // Prevent usage of setState in componentDidUpdate
+        "react/no-multi-comp": 0, // Prevent multiple component definition per file
+        "react/no-unknown-property": 2, // Prevent usage of unknown DOM property
+        "react/prefer-es6-class": 2,
+        "react/prop-types": 2, // Prevent missing props validation in a React component definition
+        "react/react-in-jsx-scope": 2, // Prevent missing React when using JSX
+        "react/self-closing-comp": 2, // Prevent extra closing tags for components without children
+        "react/wrap-multilines": 2, // Prevent missing parentheses around multilines JSX
+    }
+}
