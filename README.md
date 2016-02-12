@@ -6,7 +6,7 @@
 npm install react-image-layout --save
 ```
 
-![](https://raw.githubusercontent.com/zackargyle/react-image-layout/master/examples/images/screenshot.png)
+![](https://raw.githubusercontent.com/zackargyle/react-image-layout/master/example/images/screenshot.png)
 
 ## ImageLayout Props
 
