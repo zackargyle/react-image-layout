@@ -1,0 +1,65 @@
+{
+  "name": "react-image-layout",
+  "version": "1.0.0",
+  "description": "Pinterest style grid layout component for images",
+  "main": "lib/index.js",
+  "jsnext:main": "src/index.js",
+  "devDependencies": {
+    "babel-core": "^6.3.13",
+    "babel-loader": "^6.2.2",
+    "babel-polyfill": "^6.5.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "chai": "^3.5.0",
+    "chai-enzyme": "^0.4.0",
+    "cheerio": "^0.20.0",
+    "enzyme": "^1.6.0",
+    "karma": "^0.13.19",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^0.2.1",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-spec-reporter": "0.0.24",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.4.5",
+    "phantomjs": "^2.1.3",
+    "phantomjs-polyfill": "0.0.1",
+    "phantomjs-prebuilt": "^2.1.4",
+    "react": "^0.14.3",
+    "react-addons-test-utils": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-hot-loader": "^1.3.0",
+    "rimraf": "^2.4.4",
+    "sinon": "^1.17.3",
+    "webpack": "^1.12.13",
+    "webpack-dev-server": "^1.14.1",
+    "yargs": "^3.32.0"
+  },
+  "peerDependencies": {
+    "react": "^0.14.3"
+  },
+  "scripts": {
+    "clean": "rimraf dist lib",
+    "build": "npm run clean && webpack src/ImageLayout.js dist/index.js --config webpack.config.js",
+    "start": "node example/server.js",
+    "test": "node_modules/.bin/karma start karma.config.js"
+  },
+  "files": [
+    "dist/",
+    "src/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zackargyle/react-image-layout.git"
+  },
+  "keywords": [
+    "react",
+    "react-component"
+  ],
+  "author": "Zack Argyle <zackargyle@pinterest.com> (http://zackargyle.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zackargyle/react-image-layout/"
+  },
+  "homepage": "https://github.com/zackargyle/react-image-layout#readme"
+}
