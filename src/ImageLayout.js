@@ -21,12 +21,32 @@ class ImageLayout extends React.Component {
         const minValue = Math.min(...this.columnHeights);
         return this.columnHeights.indexOf(minValue);
     }
+    
+    /*
+     * Get the column width
+     * @columnWidth {number} - Optional
+     */
+    getNumberOfColumns(columnWidth) {
+        if(columnWidth) {
+            return Math.round(this.props.containerWidth/columnWidth);    
+        }
+        else {
+            //loop columnMinWidth and columnMaxWidth to get the number of columns
+            let columns = 0;
+            for(var x = this.getNumberOfColumns(this.props.columnMinWidth); x >= this.getNumberOfColumns(this.props.columnMaxWidth); x--) {
+               columns = x; 
+            }
+            console.log(columns)
+            return columns;    
+        }
+    }
   
     /*
      * Get the column width 
+     * @columns {number} - Optional
      */
-    getColumnWidth() {
-        return this.props.containerWidth/this.props.columns;
+    getColumnWidth(columns) {
+        return columns ?  this.props.containerWidth/columns : this.props.containerWidth/this.getNumberOfColumns()
     }
     
     /*
@@ -67,7 +87,7 @@ class ImageLayout extends React.Component {
     }
     
     render() {
-        this.columnHeights = Array.from({ length: this.props.columns }, () => 0);
+        this.columnHeights = Array.from({ length: this.getNumberOfColumns() }, () => 0);
         const { items } = this.props;
         console.log('render');
         return (
@@ -79,8 +99,10 @@ class ImageLayout extends React.Component {
 }
 
 ImageLayout.propTypes = {
-    // The number of columns in the grid
-    columns: React.PropTypes.number,
+    // The max width of columns in the grid
+    columnMaxWidth: React.PropTypes.number,
+    // The min width of columns in the grid
+    columnMinWidth: React.PropTypes.number,
     // The size of the gutter between images
     gutter: React.PropTypes.number,
     // The list of images to render
@@ -94,8 +116,9 @@ ImageLayout.propTypes = {
 };
 
 ImageLayout.defaultProps = {
-    columns: 4,
-    gutter: 0
+    gutter: 0,
+    columnMinWidth: 100,
+    columnMaxWidth: 400
 };
 
 export default Dimensions()(ImageLayout) // Enhanced component

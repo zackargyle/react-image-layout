@@ -10,12 +10,12 @@ npm install react-image-layout --save
 
 ## ImageLayout Props
 
-prop        | type   | default    | notes
------------ | ------ | ---------- | ----------
-gutter      | number | 0          | the margin between grid elements
-columns     | number | 4          | the number of columns to use in the grid
-columnWidth | number | 100        | the fixed width of the columns
-items       | Array  | `required` | the list of image objects
+prop           | type   | default    | notes
+-----------    | ------ | ---------- | ----------
+gutter         | number | 0          | the margin between grid elements
+columnMinWidth | number | 100        | the minimum fixed width (px) of the columns
+columnMaxWidth | number | 400        | the maximum fixed width (px) of the columns
+items          | Array  | `required` | the list of image objects
 
 Use:
 ``` js
