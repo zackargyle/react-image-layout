@@ -1,20 +1,19 @@
 import React from 'react';
+import Dimensions from 'react-dimensions'
 
 /*
  * The classic "masonry" style Pinterest grid
  * @prop {number} columns - the number of columns in the grid
- * @prop {number} columnWidth - the fixed width of the columns
  * @prop {number} gutter  - the number of columns in the grid
  * @prop {Array}  items   - the list of items to render
  */
-export default class ImageLayout extends React.Component {
-  
+class ImageLayout extends React.Component {
+    
     constructor(props) {
         super(props);
-        this.columnHeights = Array.from({ length: props.columns }, () => 0);
         this.renderItem = this.renderItem.bind(this);
     }
-  
+    
     /*
      * Get the shortest column in the list of columns heights
      */
@@ -24,6 +23,13 @@ export default class ImageLayout extends React.Component {
     }
   
     /*
+     * Get the column width 
+     */
+    getColumnWidth() {
+        return this.props.containerWidth/this.props.columns;
+    }
+    
+    /*
      * Determine the top and left positions of the grid item. Update the
      * cached column height.
      * @param {Object} item - the grid item
@@ -31,7 +37,8 @@ export default class ImageLayout extends React.Component {
      * @param {Object} item.width - the grid item's image width
      */
     getItemStyle(item) {
-        const { columnWidth, gutter } = this.props;
+        const gutter  = this.props.gutter;
+        const columnWidth = this.getColumnWidth();
         const shortestColumnIndex = this.getShortestColumn();
         const left = ( columnWidth + gutter ) * shortestColumnIndex;
         const top = this.columnHeights[shortestColumnIndex];
@@ -53,14 +60,16 @@ export default class ImageLayout extends React.Component {
         return (
             <img className="ImageLayout__item"
                 src={item.url}
-                width={this.props.columnWidth}
+                width={this.getColumnWidth()}
                 style={this.getItemStyle(item)}
                 key={index} />
         );
     }
-
+    
     render() {
+        this.columnHeights = Array.from({ length: this.props.columns }, () => 0);
         const { items } = this.props;
+        console.log('render');
         return (
             <div className="ImageLayout" style={{position: 'relative'}}>
                 { items.map(this.renderItem) }
@@ -72,8 +81,6 @@ export default class ImageLayout extends React.Component {
 ImageLayout.propTypes = {
     // The number of columns in the grid
     columns: React.PropTypes.number,
-    // The fixed width of the columns in the grid
-    columnWidth: React.PropTypes.number,
     // The size of the gutter between images
     gutter: React.PropTypes.number,
     // The list of images to render
@@ -88,6 +95,7 @@ ImageLayout.propTypes = {
 
 ImageLayout.defaultProps = {
     columns: 4,
-    columnWidth: 100,
     gutter: 0
 };
+
+export default Dimensions()(ImageLayout) // Enhanced component

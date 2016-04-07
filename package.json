@@ -66,5 +66,8 @@
   "bugs": {
     "url": "https://github.com/zackargyle/react-image-layout/"
   },
-  "homepage": "https://github.com/zackargyle/react-image-layout#readme"
+  "homepage": "https://github.com/zackargyle/react-image-layout#readme",
+  "dependencies": {
+    "react-dimensions": "^1.0.2"
+  }
 }
